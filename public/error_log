@@ -1,0 +1,11 @@
+[14-Feb-2021 19:28:24 UTC] PHP Fatal error:  Cannot declare class App\Http\Middleware\CorsMiddleware, because the name is already in use in /home/sabahpar/public_html/api/app/Http/Middleware/Cors2Middleware.php on line 4
+[14-Feb-2021 19:32:16 UTC] PHP Fatal error:  Cannot declare class App\Http\Middleware\CorsMiddleware, because the name is already in use in /home/sabahpar/public_html/api/app/Http/Middleware/Cors2Middleware.php on line 4
+[14-Feb-2021 19:35:20 UTC] PHP Fatal error:  Cannot declare class App\Http\Middleware\CorsMiddleware, because the name is already in use in /home/sabahpar/public_html/api/app/Http/Middleware/Cors2Middleware.php on line 4
+[14-Feb-2021 19:36:26 UTC] PHP Fatal error:  Cannot declare class App\Http\Middleware\CorsMiddleware, because the name is already in use in /home/sabahpar/public_html/api/app/Http/Middleware/Cors2Middleware.php on line 4
+[14-Feb-2021 19:37:08 UTC] PHP Fatal error:  Cannot declare class App\Http\Middleware\CorsMiddleware, because the name is already in use in /home/sabahpar/public_html/api/app/Http/Middleware/Cors2Middleware.php on line 4
+[28-Feb-2021 06:19:18 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\UserController::get_role() in /home/sabahpar/public_html/api/app/Http/Controllers/UserController.php on line 533
+[28-Feb-2021 06:19:18 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\UserController::get_role() in /home/sabahpar/public_html/api/app/Http/Controllers/UserController.php on line 533
+[28-Feb-2021 06:20:08 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\UserController::get_role() in /home/sabahpar/public_html/api/app/Http/Controllers/UserController.php on line 533
+[28-Feb-2021 06:21:18 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\UserController::get_role() in /home/sabahpar/public_html/api/app/Http/Controllers/UserController.php on line 533
+[28-Feb-2021 06:22:14 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\UserController::get_role() in /home/sabahpar/public_html/api/app/Http/Controllers/UserController.php on line 533
+[05-Mar-2021 01:33:26 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\DashboardController::top_destination() in /home/sabahpar/public_html/api/app/Http/Controllers/DashboardController.php on line 101

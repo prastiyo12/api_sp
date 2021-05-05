@@ -1,0 +1,2317 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Sabah Park Api Documentation",
+        "contact": {
+            "email": "prastiyo.beka12@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/admin/billing/get": {
+            "get": {
+                "tags": [
+                    "Setup Billing (BackOffice)"
+                ],
+                "summary": "Get Data Order",
+                "operationId": "App\\Http\\Controllers\\Admin\\BillingController::get",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/booking/get": {
+            "get": {
+                "tags": [
+                    "Setup Booking (BackOffice)"
+                ],
+                "summary": "Get Data Booking",
+                "operationId": "App\\Http\\Controllers\\Admin\\BookingController::get",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/booking/approved": {
+            "post": {
+                "tags": [
+                    "Setup Booking (BackOffice)"
+                ],
+                "summary": "Booking Approved",
+                "operationId": "App\\Http\\Controllers\\Admin\\BookingController::approved",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "billing_id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/broadcast/get": {
+            "get": {
+                "tags": [
+                    "Setup Broadcast (BackOffice)"
+                ],
+                "summary": "Get Broadcast",
+                "operationId": "App\\Http\\Controllers\\Admin\\BroadcastController::get",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer {access-token}",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Pencarian Judul",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "description": " {kosong} = all, 1 = News, 2 = Promotion, 3 = Events",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "index start data",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": " data yang ingin di tampilkan",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/broadcast/manage": {
+            "post": {
+                "tags": [
+                    "Setup Broadcast (BackOffice)"
+                ],
+                "summary": "Manage Broadcast",
+                "operationId": "App\\Http\\Controllers\\Admin\\BroadcastController::manage",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "id_type": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "content": {
+                                        "type": "string"
+                                    },
+                                    "date_create": {
+                                        "type": "string"
+                                    },
+                                    "expire_date": {
+                                        "type": "string"
+                                    },
+                                    "status": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/broadcast/delete": {
+            "post": {
+                "tags": [
+                    "Setup Broadcast (BackOffice)"
+                ],
+                "summary": "Delete Inbox",
+                "operationId": "App\\Http\\Controllers\\Admin\\BroadcastController::delete",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/broadcast/send-email": {
+            "post": {
+                "tags": [
+                    "Setup Broadcast (BackOffice)"
+                ],
+                "summary": "Send Email",
+                "operationId": "App\\Http\\Controllers\\Admin\\BroadcastController::send_email",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/broadcast/send-inbox": {
+            "post": {
+                "tags": [
+                    "Setup Broadcast (BackOffice)"
+                ],
+                "summary": "Send Inbox",
+                "operationId": "App\\Http\\Controllers\\Admin\\BroadcastController::send_inbox",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/dashboard/summary": {
+            "get": {
+                "tags": [
+                    "DASHBOARD"
+                ],
+                "summary": "Get Data Member",
+                "operationId": "App\\Http\\Controllers\\Admin\\DashboardController::summary",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/dashboard/diagram": {
+            "get": {
+                "tags": [
+                    "DASHBOARD"
+                ],
+                "summary": "Get Data DIAGRAM",
+                "operationId": "App\\Http\\Controllers\\Admin\\DashboardController::diagram",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/dashboard/order": {
+            "get": {
+                "tags": [
+                    "DASHBOARD"
+                ],
+                "summary": "Get Data DIAGRAM",
+                "operationId": "App\\Http\\Controllers\\Admin\\DashboardController::order",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/dashboard/visitor": {
+            "get": {
+                "tags": [
+                    "DASHBOARD"
+                ],
+                "summary": "Get Data DIAGRAM",
+                "operationId": "App\\Http\\Controllers\\Admin\\DashboardController::visitor",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/dashboard/sales": {
+            "get": {
+                "tags": [
+                    "DASHBOARD"
+                ],
+                "summary": "Get Data DIAGRAM",
+                "operationId": "App\\Http\\Controllers\\Admin\\DashboardController::sales_comparasion",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/member/get": {
+            "get": {
+                "tags": [
+                    "Setup Member (BackOffice)"
+                ],
+                "summary": "Get Data Member",
+                "operationId": "App\\Http\\Controllers\\Admin\\MemberController::get",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/blog/get": {
+            "get": {
+                "tags": [
+                    "Setup News,Blogs & Events (BackOffice)"
+                ],
+                "summary": "Get News,Blogs & Events",
+                "operationId": "App\\Http\\Controllers\\Admin\\NewsController::get",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer {access-token}",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Pencarian Judul",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "description": " {kosong} = all, 1 = News, 2 = Promotion, 3 = Events",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "index start data",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": " data yang ingin di tampilkan",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/blog/manage": {
+            "post": {
+                "tags": [
+                    "Setup News,Blogs & Events (BackOffice)"
+                ],
+                "summary": "Manage News,Blogs & Events",
+                "operationId": "App\\Http\\Controllers\\Admin\\NewsController::manage",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "blogid": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "tag": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    },
+                                    "path_cover": {
+                                        "type": "string"
+                                    },
+                                    "status": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/blog/delete": {
+            "post": {
+                "tags": [
+                    "Setup News,Blogs & Events (BackOffice)"
+                ],
+                "summary": "Delete News,Blogs & Events",
+                "operationId": "App\\Http\\Controllers\\Admin\\NewsController::delete",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/blog/send-email": {
+            "post": {
+                "tags": [
+                    "Setup News,Blogs & Events (BackOffice)"
+                ],
+                "summary": "Send Email News,Blogs & Events",
+                "operationId": "App\\Http\\Controllers\\Admin\\NewsController::send_email",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/blog/send-inbox": {
+            "post": {
+                "tags": [
+                    "Setup News,Blogs & Events (BackOffice)"
+                ],
+                "summary": "Send Inbox News,Blogs & Events",
+                "operationId": "App\\Http\\Controllers\\Admin\\NewsController::send_inbox",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/order/get": {
+            "get": {
+                "tags": [
+                    "Setup Order (BackOffice)"
+                ],
+                "summary": "Get Data Order",
+                "operationId": "App\\Http\\Controllers\\Admin\\OrderController::get",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/sales/get": {
+            "get": {
+                "tags": [
+                    "Setup Billing (BackOffice)"
+                ],
+                "summary": "Get Data Order",
+                "operationId": "App\\Http\\Controllers\\Admin\\SalesController::get",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/ticket/get": {
+            "get": {
+                "tags": [
+                    "Setup Ticket (BackOffice)"
+                ],
+                "summary": "Get Data Ticket",
+                "operationId": "App\\Http\\Controllers\\Admin\\TicketController::get",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/ticket/scan": {
+            "get": {
+                "tags": [
+                    "Setup Ticket (BackOffice)"
+                ],
+                "summary": "Get Data Ticket",
+                "operationId": "App\\Http\\Controllers\\Admin\\TicketController::scan",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Setup Ticket (BackOffice)"
+                ],
+                "summary": "Scan Ticket",
+                "operationId": "App\\Http\\Controllers\\Admin\\TicketController::update",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "ticket_id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/visitor/get": {
+            "get": {
+                "tags": [
+                    "Setup Ticket (BackOffice)"
+                ],
+                "summary": "Get Data Order",
+                "operationId": "App\\Http\\Controllers\\Admin\\VisitorController::get",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/auth/admin/login": {
+            "post": {
+                "tags": [
+                    "Admin Credentials"
+                ],
+                "summary": "Login Admin",
+                "operationId": "App\\Http\\Controllers\\AuthController::login",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "gate": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/auth/admin/forgot-password": {
+            "post": {
+                "tags": [
+                    "Admin Credentials"
+                ],
+                "summary": "Forgot Password Admin",
+                "operationId": "App\\Http\\Controllers\\AuthController::forgot_password",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/auth/member/register": {
+            "post": {
+                "tags": [
+                    "Member Credentials"
+                ],
+                "summary": "Registrasi Member",
+                "operationId": "App\\Http\\Controllers\\AuthMemberController::register",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "first_name": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/auth/member/login": {
+            "post": {
+                "tags": [
+                    "Member Credentials"
+                ],
+                "summary": "Login Member",
+                "operationId": "App\\Http\\Controllers\\AuthMemberController::login",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/auth/member/active": {
+            "get": {
+                "tags": [
+                    "Member Credentials"
+                ],
+                "summary": "Aktivasi Akun Member",
+                "operationId": "App\\Http\\Controllers\\AuthMemberController::active",
+                "parameters": [
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/auth/member/forgot-password": {
+            "post": {
+                "tags": [
+                    "Member Credentials"
+                ],
+                "summary": "Forgot Password Member",
+                "operationId": "App\\Http\\Controllers\\AuthMemberController::forgot_password",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/destination/type": {
+            "get": {
+                "tags": [
+                    "Setup Destination (BackOffice)"
+                ],
+                "summary": "Get Type Destination",
+                "operationId": "App\\Http\\Controllers\\DestinationController::get_type",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/destination/get": {
+            "get": {
+                "tags": [
+                    "Setup Destination (BackOffice)"
+                ],
+                "summary": "Get Data Destination",
+                "operationId": "App\\Http\\Controllers\\DestinationController::get",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/destination/manage": {
+            "post": {
+                "tags": [
+                    "Setup Destination (BackOffice)"
+                ],
+                "summary": "Manage Destination",
+                "operationId": "App\\Http\\Controllers\\DestinationController::manage",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "destid": {
+                                        "type": "string"
+                                    },
+                                    "destname": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "desttype": {
+                                        "type": "string"
+                                    },
+                                    "loc_price_18above": {
+                                        "type": "string"
+                                    },
+                                    "loc_price_18below": {
+                                        "type": "string"
+                                    },
+                                    "int_price_18above": {
+                                        "type": "string"
+                                    },
+                                    "int_price_18below": {
+                                        "type": "string"
+                                    },
+                                    "loc_quota": {
+                                        "type": "string"
+                                    },
+                                    "int_quota": {
+                                        "type": "string"
+                                    },
+                                    "status": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/destination/delete": {
+            "post": {
+                "tags": [
+                    "Setup Destination (BackOffice)"
+                ],
+                "summary": "Delete Destination",
+                "operationId": "App\\Http\\Controllers\\DestinationController::delete",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "destid": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/public/order/type": {
+            "get": {
+                "tags": [
+                    "Public"
+                ],
+                "summary": "Get Destination",
+                "operationId": "App\\Http\\Controllers\\DestinationTypeController::type",
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "index start data",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": " data yang ingin di tampilkan",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/public/order/destination/id": {
+            "get": {
+                "tags": [
+                    "Public"
+                ],
+                "summary": "Get Destination",
+                "operationId": "App\\Http\\Controllers\\DestinationTypeController::get",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Pencarian Judul",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id_type",
+                        "in": "query",
+                        "description": "Filter Berdasarkan Type Destination",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "index start data",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": " data yang ingin di tampilkan",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/member/order/destination/id": {
+            "get": {
+                "tags": [
+                    "ORDER"
+                ],
+                "summary": "Get Destination",
+                "operationId": "App\\Http\\Controllers\\DestinationTypeController::by_id",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer {access-token}",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "destid",
+                        "in": "query",
+                        "description": "ID DESTINATION",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Pencarian Judul",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id_type",
+                        "in": "query",
+                        "description": "Filter Berdasarkan Type Destination",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "index start data",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": " data yang ingin di tampilkan",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/gallery/get": {
+            "get": {
+                "tags": [
+                    "Setup Gallery (BackOffice)"
+                ],
+                "summary": "Get Gallery",
+                "operationId": "App\\Http\\Controllers\\GalleryController::get",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer {access-token}",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Pencarian Judul",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "description": " {kosong} = all, 1 = News, 2 = Promotion, 3 = Events",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "index start data",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": " data yang ingin di tampilkan",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/gallery/manage": {
+            "post": {
+                "tags": [
+                    "Setup Gallery (BackOffice)"
+                ],
+                "summary": "Manage Gallery",
+                "operationId": "App\\Http\\Controllers\\GalleryController::manage",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "path": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/gallery/delete": {
+            "post": {
+                "tags": [
+                    "Setup Gallery (BackOffice)"
+                ],
+                "summary": "Delete Gallery",
+                "operationId": "App\\Http\\Controllers\\GalleryController::delete",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/member/inbox/get": {
+            "get": {
+                "tags": [
+                    "Setup Broadcast (BackOffice)"
+                ],
+                "summary": "Get Inbox Broadcast",
+                "operationId": "App\\Http\\Controllers\\InboxController::get",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer {access-token}",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Pencarian Judul",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "description": " {kosong} = all, 1 = News, 2 = Promotion, 3 = Events",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "index start data",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": " data yang ingin di tampilkan",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/member/inbox/delete": {
+            "post": {
+                "tags": [
+                    "Setup Broadcast (BackOffice)"
+                ],
+                "summary": "Delete Inbox",
+                "operationId": "App\\Http\\Controllers\\InboxController::delete",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/member/logout": {
+            "post": {
+                "tags": [
+                    "Member Credentials"
+                ],
+                "summary": "Logout Member",
+                "operationId": "App\\Http\\Controllers\\MemberController::logout",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer {access-token}",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/member/profile": {
+            "get": {
+                "tags": [
+                    "Member Credentials"
+                ],
+                "summary": "Get Profile Member",
+                "operationId": "App\\Http\\Controllers\\MemberController::profile",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer {access-token}",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/member/change-password": {
+            "post": {
+                "tags": [
+                    "Member Credentials"
+                ],
+                "summary": "Change Password Member",
+                "operationId": "App\\Http\\Controllers\\MemberController::change_password",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "confirm_password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/member/edit-profile": {
+            "post": {
+                "tags": [
+                    "Member Credentials"
+                ],
+                "summary": "Edit Profile Member",
+                "operationId": "App\\Http\\Controllers\\MemberController::edit_profile",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "firstname": {
+                                        "type": "string"
+                                    },
+                                    "lastname": {
+                                        "type": "string"
+                                    },
+                                    "fullname": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "type": "string"
+                                    },
+                                    "city": {
+                                        "type": "string"
+                                    },
+                                    "postcode": {
+                                        "type": "string"
+                                    },
+                                    "nationality": {
+                                        "type": "string"
+                                    },
+                                    "gender": {
+                                        "description": "1 = Pria, 2 = Wanita",
+                                        "type": "string"
+                                    },
+                                    "tgl_lahir": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/public/negara/get": {
+            "get": {
+                "tags": [
+                    "Public"
+                ],
+                "summary": "Get Negara",
+                "operationId": "App\\Http\\Controllers\\NegaraController::get",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer {access-token}",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/member/order/type": {
+            "get": {
+                "tags": [
+                    "ORDER"
+                ],
+                "summary": "Get Destination",
+                "operationId": "App\\Http\\Controllers\\OrderController::type",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer {access-token}",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "index start data",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": " data yang ingin di tampilkan",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/member/order/destination": {
+            "get": {
+                "tags": [
+                    "ORDER"
+                ],
+                "summary": "Get Destination",
+                "operationId": "App\\Http\\Controllers\\OrderController::get",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer {access-token}",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Pencarian Judul",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id_type",
+                        "in": "query",
+                        "description": "Filter Berdasarkan Type Destination",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "index start data",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": " data yang ingin di tampilkan",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/member/order/process": {
+            "post": {
+                "tags": [
+                    "ORDER"
+                ],
+                "summary": "Manage Order",
+                "operationId": "App\\Http\\Controllers\\OrderController::manage",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "first_name": {
+                                        "type": "string"
+                                    },
+                                    "last_name": {
+                                        "type": "string"
+                                    },
+                                    "company_name": {
+                                        "type": "string"
+                                    },
+                                    "country": {
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "type": "string"
+                                    },
+                                    "city": {
+                                        "type": "string"
+                                    },
+                                    "postcode": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "total_pax": {
+                                        "type": "string"
+                                    },
+                                    "total_cost": {
+                                        "type": "string"
+                                    },
+                                    "detail": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "destid": {
+                                                    "type": "string"
+                                                },
+                                                "ticketdatefrom": {
+                                                    "type": "string"
+                                                },
+                                                "ticketdateto": {
+                                                    "type": "string"
+                                                },
+                                                "loc_qty_18above": {
+                                                    "type": "string"
+                                                },
+                                                "loc_qty_18below": {
+                                                    "type": "string"
+                                                },
+                                                "int_qty_18above": {
+                                                    "type": "string"
+                                                },
+                                                "int_qty_18below": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "visitor": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "visitor_name": {
+                                                    "type": "string"
+                                                },
+                                                "id_number": {
+                                                    "type": "string"
+                                                },
+                                                "email": {
+                                                    "type": "string"
+                                                },
+                                                "phone": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/ticket/scan2": {
+            "post": {
+                "tags": [
+                    "TICKET"
+                ],
+                "summary": "Scan Ticket",
+                "operationId": "App\\Http\\Controllers\\TicketController::update",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "ticket_id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/ticket/hitory": {
+            "get": {
+                "tags": [
+                    "TICKET"
+                ],
+                "summary": "TICKET HISTORY",
+                "operationId": "App\\Http\\Controllers\\TicketController::history",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/logout": {
+            "post": {
+                "tags": [
+                    "Admin Credentials"
+                ],
+                "summary": "Logout Admin",
+                "operationId": "App\\Http\\Controllers\\UserController::logout",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer {access-token}",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/profile": {
+            "get": {
+                "tags": [
+                    "Admin Credentials"
+                ],
+                "summary": "Get Profile Admin",
+                "operationId": "App\\Http\\Controllers\\UserController::profile",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer {access-token}",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/menu": {
+            "get": {
+                "tags": [
+                    "Admin Credentials"
+                ],
+                "summary": "Get Menu Backoffice",
+                "operationId": "App\\Http\\Controllers\\UserController::menu",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer {access-token}",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/menu/role": {
+            "get": {
+                "tags": [
+                    "Admin Credentials"
+                ],
+                "summary": "Get Menu Backoffice",
+                "operationId": "App\\Http\\Controllers\\UserController::get_role_all",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer {access-token}",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/menu/get": {
+            "get": {
+                "tags": [
+                    "Admin Credentials"
+                ],
+                "summary": "Get Menu Backoffice",
+                "operationId": "App\\Http\\Controllers\\UserController::get_menu",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer {access-token}",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/change-password": {
+            "post": {
+                "tags": [
+                    "Admin Credentials"
+                ],
+                "summary": "Change Password Admin",
+                "operationId": "App\\Http\\Controllers\\UserController::change_password",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "confirm_password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/edit-profile": {
+            "post": {
+                "tags": [
+                    "Admin Credentials"
+                ],
+                "summary": "Edit Profile Admin",
+                "operationId": "App\\Http\\Controllers\\UserController::edit_profile",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "firstname": {
+                                        "type": "string"
+                                    },
+                                    "lastname": {
+                                        "type": "string"
+                                    },
+                                    "fullname": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "type": "string"
+                                    },
+                                    "city": {
+                                        "type": "string"
+                                    },
+                                    "postcode": {
+                                        "type": "string"
+                                    },
+                                    "nationality": {
+                                        "type": "string"
+                                    },
+                                    "gender": {
+                                        "description": "1 = Pria, 2 = Wanita",
+                                        "type": "string"
+                                    },
+                                    "tgl_lahir": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/user/all": {
+            "get": {
+                "tags": [
+                    "Setup User (BackOffice)"
+                ],
+                "summary": "Get User",
+                "operationId": "App\\Http\\Controllers\\UserController::all",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer {access-token}",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/user/role": {
+            "get": {
+                "tags": [
+                    "Setup User (BackOffice)"
+                ],
+                "summary": "Get Role user",
+                "operationId": "App\\Http\\Controllers\\UserController::get_role",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer {access-token}",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/user/manage": {
+            "post": {
+                "tags": [
+                    "Setup User (BackOffice)"
+                ],
+                "summary": "Manage User",
+                "operationId": "App\\Http\\Controllers\\UserController::manage",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id_user": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "no_telpon": {
+                                        "type": "string"
+                                    },
+                                    "nama_lengkap": {
+                                        "type": "string"
+                                    },
+                                    "id_role": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/menu/role-manage": {
+            "post": {
+                "tags": [
+                    "Setup User (BackOffice)"
+                ],
+                "summary": "Manage User",
+                "operationId": "App\\Http\\Controllers\\UserController::manage_role",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "role_name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/menu/role-menu-manage": {
+            "post": {
+                "tags": [
+                    "Setup User (BackOffice)"
+                ],
+                "summary": "Manage User",
+                "operationId": "App\\Http\\Controllers\\UserController::manage_role_menu",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "role_name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/admin/menu/role-delete": {
+            "post": {
+                "tags": [
+                    "Setup User (BackOffice)"
+                ],
+                "summary": "Manage User",
+                "operationId": "App\\Http\\Controllers\\UserController::delete_role",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "role_name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "error"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "apiKey",
+                "name": "Authorization",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    }
+}
